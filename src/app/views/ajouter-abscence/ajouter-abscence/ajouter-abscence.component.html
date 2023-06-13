@@ -1,0 +1,82 @@
+<main class="main-content ">
+  <section>
+    <div class="page-header min-vh-85">
+      <div class="container">
+
+          <div class="row">
+            <div class=" col-md-8 offset-2">
+              <div class="card ">
+                <div class="card-header">
+                  <h1 class="font-weight-bolder text-center">{{title}}</h1>
+                </div>
+                <div class="card-body">
+                  <form method="post" #data="ngForm">
+                    
+                    <div class="form-group">
+                      <input  [(ngModel)]="abscence.nom" name="nom" type="text" class="form-control" placeholder="Nom"
+                      ngModel #n="ngModel" required minlength="4">
+                      <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+                        <p *ngIf="n.hasError('required')" >Name is required</p>
+                        <p *ngIf="n.hasError('minlength')"> minlength error</p>
+                      </div>
+                    </div><br>
+
+                    <div class="form-group">
+                      <input  [(ngModel)]="abscence.prenom" name="prenom" type="text" class="form-control" placeholder="Prenom"
+                      ngModel #b="ngModel" required minlength="4">
+                      <div class="alert alert-danger" *ngIf="b.invalid && b.touched">
+                        <p *ngIf="b.hasError('required')" >prenom is required</p>
+                        <p *ngIf="b.hasError('minlength')"> minlength error</p>
+                      </div>
+                    </div><br>
+
+                    <div class="form-group">
+                      <select class="form-control" [(ngModel)]="abscence.formation" name="formation">
+                       <option selected>Selectonner formation...</option>
+                       <option  *ngFor="let forma of formations">{{forma.nomformation}}</option>
+                      </select>
+                     </div><br>
+                      
+
+                    <div class="form-group">
+                      <input [(ngModel)]="abscence.date" name="date" type="date" class="form-control"  placeholder="Date " 
+                      ngModel #d="ngModel" required minlength="4">
+                      <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+                        <p *ngIf="d.hasError('required')" >Date fin is required! </p>
+                      </div>
+                    </div><br>
+
+                    <div class="form-group">
+                      <select class="form-control" [(ngModel)]="abscence.abscence" name="abscence">
+                        <option Value="present" selected>present</option>
+                       <option  Value="abscent">Abscent</option>          
+                      </select>
+                     </div><br>
+                     
+
+
+                    <div class="text-center">
+                      <button class="btn btn-danger" (click)="cancel()">
+                          <i class="fas fa-ban"></i>&nbsp;
+                          Annuler
+                      </button>
+                      <button class="btn btn-success"  (click)="register()">
+                          <i class="fas fa-save"></i>&nbsp;
+                          Enregistrer
+                  
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          </section>
+          </main>
+          
+
+  <!--   Core JS Files   -->
+
+

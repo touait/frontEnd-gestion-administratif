@@ -1,0 +1,92 @@
+<div class="container-fluid ">
+  <div class="card card0 border-0">
+            <div class="col-md-6 offset-3 ">
+              <div class="card">
+                <div >
+                  <h1 class="font-weight-bolder text-center">Créer un compte</h1>
+                </div>
+                <div class="card-body">
+                  <form method="post" #data="ngForm">
+
+                    <div class="form-group">
+                      <input [(ngModel)]="inscrire.nomU" name="nomU" type="text" class="form-control" placeholder="Nom"
+                      ngModel #n="ngModel" required minlength="3">
+                      <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+                        <p *ngIf="n.hasError('required')" >Name is required</p>
+                        <p *ngIf="n.hasError('minlength')"> minlength error</p>
+                      </div>
+                    </div><br>
+
+                    <div class="form-group">
+                      <input  [(ngModel)]="inscrire.prenom" name="prenom" type="text" class="form-control" placeholder="Prenom"
+                      ngModel #a="ngModel" required minlength="3">
+                      <div class="alert alert-danger" *ngIf="a.invalid && a.touched">
+                        <p *ngIf="a.hasError('required')" >prenom is required</p>
+                        <p *ngIf="a.hasError('minlength')"> minlength error</p>
+                      </div>
+                    </div><br>
+
+                    <div class="form-group">
+                      <input [(ngModel)]="inscrire.email" name="email" type="email" class="form-control" placeholder="Email" 
+                      ngModel #b="ngModel" required >
+                      <div class="alert alert-danger" *ngIf="b.invalid && b.touched">
+                        <p *ngIf="b.hasError('required')" >email is required</p>
+                      </div>
+                    </div><br>
+
+                    <div class="form-group">
+                      <input [(ngModel)]="inscrire.telephone" name="telephone" type="number" class="form-control" placeholder="N° Telephone" 
+                      ngModel #c="ngModel" required >
+                      <div class="alert alert-danger" *ngIf="c.invalid && c.touched">
+                        <p *ngIf="c.hasError('required')" >N° Tel is required</p>
+                      </div>
+                    </div><br>
+
+                    <div class="form-group">
+                      <select name="role" [(ngModel)]="inscrire.role"  class="form-control">
+                        <option [ngValue]="'Selectonner role...'" selected >Selectonner role...</option>
+                        <option value="technicien">Technicien</option>
+                        <option value="secretaire géneral">secretaire géneral</option>
+                        <option value="admin">Admin</option>
+                      </select>
+                      </div><br>
+                      
+                    <div class="form-group">
+                      <input type="file" class="form-control" (change)="select($event)">
+                    </div><br>
+
+                    <div class="form-group">
+                      <input type="password" class="form-control" name="password" [(ngModel)]="inscrire.password" placeholder="Password"
+                      ngModel #d="ngModel" required minlength="4">
+                      <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+                        <p *ngIf="d.hasError('required')" >email is required</p>
+                        <p *ngIf="d.hasError('minlength')" >minlength is required</p>
+                      </div>
+                    </div><br>
+                   
+                    <div class="text-center">
+                      <button (click)="register()" type="button" class="btn btn-blue text-center " >Enregistrer</button>
+                    </div>
+                  </form>
+                </div>
+                <br>
+                <div class="card-footer text-center pt-0 px-lg-2 px-1 mt-1" >
+                  <p class="mb-2 text-sm mx-auto">
+                    Tu as un deja un compte?
+                    <a  class="text-danger text-gradient font-weight-bold" routerLink="/login">se connecter</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-blue pt-1">
+              <div class="row px-3">
+                  <small class="ml-4 ml-sm-5 mb-2">Adresse : 1 er étage, Imm Ayadi, A coté d'impasse Sidi Assem Jendouba 8100, Jendouba, Tunisia</small>
+                  <small class="ml-4 ml-sm-5 mb-2">Telephone : + 216 53 225 250</small>
+                  <small class="ml-4 ml-sm-5 mb-2">Email : forci.plus@gmail.com</small>
+              </div>
+          </div>
+          </div>
+          </div>
+
+  

@@ -1,0 +1,84 @@
+
+<div class="container-xl">
+	
+
+	<div class="table-responsive">
+		<div class="row">
+			<div class="col-md-11 ">
+				<div class="input-group md-form form-sm form-2 pl-0">
+					<input class="form-control my-0 py-1 pl-3 purple-border" type="text" placeholder="recherche par prenom ..." aria-label="Search" [(ngModel)]="certificat" (input)="search()" >
+					<span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"><a><i class="fa fa-search white-text" aria-hidden="true"></i></a></span>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2><b>Liste Des Attestations</b></h2>
+					</div>
+
+					<div class="col-sm-6">
+						<a  class="btn btn-success" data-toggle="modal" style="
+						border-radius: 30px;" routerLink="/secretairegeneral/ajoutcertif" ><i class="material-icons">&#xE147;</i> <span>Ajouter Attestation</span></a>
+					             
+					</div>
+				</div>
+			</div>
+			<table class="table table-striped table-hover" >
+				<thead>
+					<tr> 
+                        <th>Cin</th>
+						<th>Nom</th>
+						<th>Prenom</th>
+						<th>Email</th>
+						<th>Formation</th>
+                        <th>Remarque</th>
+						<th>Actions</th>
+					
+					</tr>
+				</thead>
+				<tbody >
+			        <tr *ngFor="let item of certificats |  paginate: {
+						itemsPerPage: tableSize,
+						currentPage: page,
+						totalItems: count }; index as i">
+                        <td>{{item.cin}}</td>
+						<td>{{item.nom}}</td>
+						<td>{{item.prenom}}</td>
+						<td>{{item.email}}</td>
+						<td>{{item.formation}}</td>
+                        <td>{{item.remarque}}</td>
+						<td>
+							<a  class="edit"   [routerLink]="['/secretairegeneral/updatecertif',item._id]"><i class="material-icons" data-toggle="tooltip" title="Edit" >&#xE254;</i></a>
+							<a class="delete"  (click)="delete(item._id,i)"><i class="material-icons" data-toggle="tooltip" title="Delete" >delete</i></a>
+							<a class="imprimer"  [routerLink]="['/secretairegeneral/certificat',item._id]"  ><i class="material-icons" data-toggle="tooltip" title="imprimer">local_printshop</i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+	
+
+
+			<!--paginaton-->
+			<div class="d-flex justify-content-center">
+				<pagination-controls
+				  previousLabel="Prev"
+				  nextLabel="Next"
+				  (pageChange)="onTableDataChange($event)"
+				>
+				</pagination-controls>
+			  </div> 
+		</div>
+	</div>        
+</div>
+
+
+
+
+
+
+	
+

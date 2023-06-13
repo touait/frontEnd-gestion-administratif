@@ -1,0 +1,91 @@
+<main class="main-content ">
+    <section>
+      <div class="page-header min-vh-85">
+        <div class="container">
+  
+            <div class="row">
+              <div class=" col-md-8 offset-2">
+                <div class="card ">
+                  <div class="card-header">
+                    <h1 class="font-weight-bolder text-center">Ajouter une formation</h1>
+                  </div>
+                  <div class="card-body">
+                    <form method="post" #data="ngForm">
+                      
+                      <div class="form-group">
+                        <input  [(ngModel)]="formation.nomformation" name="nomformation" type="text" class="form-control" placeholder="Nom du Formation"
+                        ngModel #n="ngModel" required minlength="4">
+                        <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+                          <p *ngIf="n.hasError('required')" >Name is required</p>
+                          <p *ngIf="n.hasError('minlength')"> minlength error</p>
+                        </div>
+                      </div><br>
+
+                      <div class="form-group">
+                          <input [(ngModel)]="formation.nbreHeure" name="nbreHeur"  type="number" class="form-control" placeholder="Nombre d'heure" 
+                          ngModel #a="ngModel" required minlength="4">
+                        <div class="alert alert-danger" *ngIf="a.invalid && a.touched">
+                          <p *ngIf="a.hasError('required')" >nombre is required! </p>
+                        </div>
+                      </div><br>
+
+                        <div class="form-group">
+                          <input [(ngModel)]="formation.dateDebu" name="dateDebu" type="date" class="form-control" placeholder="Date debu"
+                          ngModel #b="ngModel" required minlength="4">
+                        <div class="alert alert-danger" *ngIf="b.invalid && b.touched">
+                          <p *ngIf="b.hasError('required')" >Date debu is required! </p>
+                        </div> 
+                        </div><br>
+
+                      <div class="form-group">
+                        <input [(ngModel)]="formation.dateFin" name="dateFin" type="date" class="form-control"  placeholder="Date fin" 
+                        ngModel #c="ngModel" required minlength="4">
+                        <div class="alert alert-danger" *ngIf="c.invalid && c.touched">
+                          <p *ngIf="c.hasError('required')" >Date fin is required! </p>
+                        </div>
+                      </div><br>
+
+                      <div class="form-group"> 
+                        <textarea [(ngModel)]="formation.description" name="formation" class="form-control" placeholder="description"
+                        ngModel #d="ngModel" required minlength="4" ></textarea>
+                        
+                        <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+                          <p *ngIf="d.hasError('required')" >description is required</p>
+                          <p *ngIf="d.hasError('minlength')"> minlength error</p>
+                        </div>
+                      </div><br>
+
+                      <div class="form-group">
+                        <input [(ngModel)]="formation.prix" name="prix" type="number" class="form-control"  placeholder="Prix en DT" 
+                        ngModel #f="ngModel" required >
+                        <div class="alert alert-danger" *ngIf="f.invalid && f.touched">
+                          <p *ngIf="f.hasError('required')" >Prix is required! </p>
+                        </div>
+                      </div><br>
+
+                      <div class="text-center">
+                        <button class="btn btn-danger" (click)="cancel()">
+                            <i class="fas fa-ban"></i>&nbsp;
+                            Annuler
+                        </button>
+                        <button class="btn btn-success"  (click)="register()">
+                            <i class="fas fa-save"></i>&nbsp;
+                            Enregistrer
+                    
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+            </section>
+            </main>
+            
+  
+    <!--   Core JS Files   -->
+  
+  
+  

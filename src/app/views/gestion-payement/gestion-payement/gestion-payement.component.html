@@ -1,0 +1,83 @@
+
+<div class="container-xl">
+	<div class="row">
+		<!-- Grid column -->
+		<div class="col-md-6">
+			<div class="input-group md-form form-sm form-2 pl-0">
+				<input class="form-control my-0 py-1 pl-3 purple-border" type="text" placeholder="recherhe par formation ..." aria-label="Search"  [(ngModel)]="inscription" (input)="search()">
+				<span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"><a><i class="fa fa-search white-text" aria-hidden="true"></i></a></span>
+			</div>
+		</div>
+		<!-- Grid column -->
+	</div>
+  
+	<div class="table-responsive" >
+		<div class="table-wrapper" >
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2>Liste <b>des payements</b></h2>
+					</div>
+
+					<div class="col-sm-6">
+						<a  class="btn btn-success" data-toggle="modal" style="
+						border-radius: 30px;"  (click)="downloedPdf()" ><i class="material-icons" data-toggle="tooltip" title="Delete">local_printshop</i><span>Imprimer</span></a>
+									
+					</div>
+				</div>
+			</div>
+			<table class="table table-striped table-hover" id="test">
+				<thead>
+					<tr>
+						<th>Cin</th>
+						<th>nom</th>
+						<th>prenom</th>
+						<th>formation</th>
+						<th>payement</th>
+						<th>Actions</th>
+					
+					</tr>
+				</thead>
+				<tbody >
+					<tr  *ngFor="let item of inscriptions |  paginate: {
+						itemsPerPage: tableSize,
+						currentPage: page,
+						totalItems: count }">
+                        <td>{{item.cin}}</td>
+                        <td>{{item.nom}}</td>
+                        <td>{{item.prenom}}</td>
+                        <td>{{item.formation}}</td>
+                        <td>{{item.payement}}</td>
+				
+						<td>
+							<a  class="edit" data-toggle="modal" [routerLink]="['/secretairegeneral/updateEtud',item._id]"><i class="material-icons" data-toggle="tooltip" title="Edit"  >&#xE254;</i></a>
+						    <a  class="Imprimer" data-toggle="modal"  [routerLink]="['/secretairegeneral/detailpaiment',item._id]" ><i class="material-icons" data-toggle="tooltip" title="Imprimer">local_printshop</i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!--paginaton-->
+			<div class="d-flex justify-content-center">
+				<pagination-controls
+				  previousLabel="Prev"
+				  nextLabel="Next"
+				  (pageChange)="onTableDataChange($event)"
+				>
+				</pagination-controls>
+			  </div>
+			
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+	
+

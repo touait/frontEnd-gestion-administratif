@@ -1,0 +1,85 @@
+
+<div class="col mb-3">
+    <div class="col-md-12">
+        <div class="col-md-10 offset-1 mb-3">
+            <h1><i class="fas fa-info-circle blue-color"></i>&nbsp;{{title}}</h1>
+        </div>
+        <div class="col-md-10 offset-1 form">
+            <form #f="ngForm">
+                <div class="row mb-3">
+                    <div class="col">
+                        <select  name="typeEquip" [(ngModel)]="materiel.typeEquip"  class="form-control" >
+                         <option [ngValue]="'Type'">Type </option>
+                         <option Value="laptop">laptop</option>
+                         <option Value="souris">souris</option>
+                         <option Value="imprimente"> imprimente</option>
+                         <option Value="scaner">scaner</option>
+                        </select>
+                     </div>
+                     <div class="col">
+                        <input type="text" class="form-control" placeholder="N° serie" name="nserie" [(ngModel)]="materiel.nserie" >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <select   name="marque" [(ngModel)]="materiel.marque" class="form-control" >
+                         <option [ngValue]="'Marque'">Marque </option>
+                         <option Value="lenovo">lenovo</option>
+                         <option Value="dell">dell</option>
+                         <option Value="acer">acer</option>
+                         <option Value="kyocera">kyocera</option>
+                        </select>
+                     </div>
+                     <div class="col">
+                        <select   name="model" [(ngModel)]="materiel.model" class="form-control">
+                         <option Value="Model">Model</option>
+                         <option Value="thinkpad">thinkpad</option>
+                         <option Value="ideapad">ideapad</option>
+                         <option Value="msi">msi</option>
+                        </select>
+                     </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <select  name="destination"  [(ngModel)]="materiel.destination" class="form-control"  >
+                            <option [ngValue]="'Destination'">Destination</option>
+                            <option Value="magasin">magasin</option>
+                            <option Value="bureau admin">bureau admin</option>
+                            <option Value="bureau secretaire">bureau secretaire</option>
+                            <option Value="sale 1">sale 1</option>
+                            <option Value="sale 2">sale 2</option>
+                            <option Value="sale 3">sale 3</option>
+                        </select>
+                    </div>
+                   
+                 </div>
+                <div class="col-md-10 offset-1 text-right">
+                    <button class="btn btn-danger"  (click)="cancel()" >
+                        <i class="fas fa-ban"></i>&nbsp;
+                        Annuler
+                
+                    </button>
+                    <button class="btn btn-primary"  (click)="register()"  [disabled]="f.invalid">
+                        <i class="fas fa-save"></i>&nbsp;
+                        Enregistrer
+                
+                    </button>
+                
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    </div>  
+
+
+
+
+
+
+
+
+
+
+    

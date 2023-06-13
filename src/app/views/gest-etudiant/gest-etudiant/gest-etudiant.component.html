@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-md-10 offset-1">
+
+  <main class="black-borde">
+    <div class="toolbar">
+
+      <div class="add-employee">
+        <button type="button" class="btn btn-outline-success btn-lg" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" #addEmployeeButton routerLink="/secretairegeneral/ajouteretudiant">Ajouter Inscription</button>
+      </div>
+
+      <div class="search-employees">
+        <input type="search" class="form-control" placeholder="recherche par prenom..." [(ngModel)]="inscription" (input)="search()"
+          #searchInput>
+      </div>
+
+    </div>
+ </main>
+ <br>
+ <!-- tableau etudiant -->
+ <div class="container-fluid g-0 p-2" *ngFor="let item of inscriptions |  paginate: {
+    itemsPerPage: tableSize,
+    currentPage: page,
+    totalItems: count }; index as i">
+
+    <div class="row g-0">
+        <!-- <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <img [src]="'http://localhost:3000/getimage/' + item.image" width="100px" height="210px" alt="Profile Image" class="profile">
+        </div> -->
+
+        <div class="col ps-2">
+            <div class="row g-0">
+                <div class="col-md-9 text-center">
+                    <span class="name">{{item.nom + ' ' + item.prenom}}</span>
+                </div>
+
+                <div class="col-md-3 d-flex justify-content-center align-items-center">
+                    <div class="btn-group" role="group">
+                        
+                        <button type="button" class="btn btn-outline-success"
+                        [routerLink]="['/secretairegeneral/updateEtud',item._id]" >Edit</button>
+                        <button type="button" class="btn btn-outline-danger"
+                        (click)="delete(item._id,i)">Delete</button>
+                        
+                    </div>
+                </div>
+            </div>
+          
+            <div class="row g-0 mt-3">
+                <div class=" card col-md">
+                    <table class="table table-hover mx-auto">
+                        <thead class="text-center fs-5 fst-italic text-secondary">
+                            <tr>
+                                <td colspan="2">Personal Détails</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>cin</td>
+                                <td>{{item.cin}}</td>
+                            </tr>
+                            <tr>
+                                <td>Formation</td>
+                                <td>{{item.formation}}</td>
+                            </tr>
+                            <tr>
+                                <td>payement</td>
+                                <td>{{item.payement}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class=" card col">
+
+                    <table class="table table-hover mx-auto">
+                        <thead class="text-center fs-5 fst-italic text-secondary">
+                            <tr>
+                                <td colspan="2">Contact</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>numero tel</td>
+                                <td>{{item.telephone}}</td>
+                            </tr>
+                            <tr>
+                                <td>email</td>
+                                <td>{{item.email}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                   
+            </div>    
+        </div>
+    </div>
+  </div>
+   <!--paginaton-->
+			<div class="d-flex justify-content-center">
+				<pagination-controls
+				  previousLabel="Prev"
+				  nextLabel="Next"
+				  (pageChange)="onTableDataChange($event)"
+				>
+				</pagination-controls>
+			  </div>
+</div>
+
+
+

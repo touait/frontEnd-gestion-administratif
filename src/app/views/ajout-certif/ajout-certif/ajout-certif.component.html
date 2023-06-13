@@ -1,0 +1,96 @@
+
+<main class="main-content">
+    <section>
+      <div class="page-header min-vh-90">
+        <div class="container">
+          <div class="row">
+            <div class=" col-md-8 offset-2">
+              <div class="card card-plain">
+                <div class="card-header">
+                  <h1 class="font-weight-bolder text-center">{{title}}</h1>
+                </div>
+                <div class="card-body">
+                  <form>
+
+                    <div class="form-group">  
+                      <input [(ngModel)]="certificat.nom" name="nom" type="text"  placeholder="Nom" class="form-control"
+                      ngModel #n="ngModel" required minlength="4">
+                      <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+                        <p *ngIf="n.hasError('required')" >Name is required</p>
+                        <p *ngIf="n.hasError('minlength')"> minlength error</p>
+                      </div>
+                    </div><br>
+
+                      <div class="form-group">
+                        <input  [(ngModel)]="certificat.prenom" name="prenom" type="text" class="form-control" placeholder="Prenom"
+                        ngModel #a="ngModel" required minlength="4">
+                        <div class="alert alert-danger" *ngIf="a.invalid && a.touched">
+                          <p *ngIf="a.hasError('required')" >Prenom is required</p>
+                          <p *ngIf="a.hasError('minlength')"> minlength error</p>
+                        </div>
+                      </div><br>
+
+                      <div class="form-group">
+                        <input [(ngModel)]="certificat.email" name="email"  type="email" class="form-control" placeholder="Email"
+                        ngModel #b="ngModel" required  >
+                        <div class="alert alert-danger" *ngIf="b.invalid && b.touched">
+                          <p *ngIf="b.hasError('required')" >email is required</p>
+                          <!-- <p *ngIf="b.hasError('pattern')" >pattern is .com</p> -->
+                        </div>
+                      </div><br>
+
+
+                      <div class="form-group">
+                        <input type="number" class="form-control" [(ngModel)]="certificat.cin" name="cin" placeholder="Cin"
+                        ngModel #c="ngModel" required  length="8" >
+                        <div class="alert alert-danger" *ngIf="c.invalid && c.touched">
+                          <p *ngIf="c.hasError('required')" >Cin is required</p>
+                          <p *ngIf="c.hasError('length')"> length 8 number</p>
+                        </div>
+                      </div><br>
+
+
+                      <div class="form-group">
+                        <select class="form-control" [(ngModel)]="certificat.formation" name="formation"  ngModel #d="ngModel" required>
+                         <option selected>Selectonner formation...</option>
+                         <option  *ngFor="let forma of formations">{{forma.nomformation}}</option>
+                        </select>
+                        
+                       </div><br>
+                       
+                       <div class="form-group">
+                        <input type="date" class="form-control" [(ngModel)]="certificat.date" name="date" placeholder="Date"
+                        ngModel #f="ngModel" required  >
+                        <div class="alert alert-danger" *ngIf="f.invalid && f.touched">
+                          <p *ngIf="f.hasError('required')" >date is required</p>
+                        </div>
+                      </div> <br>
+
+                       <div class="input-group input-group-outline mb-3">
+                        <input  [(ngModel)]="certificat.remarque" name="remarque" type="text" class="form-control" placeholder="Remarque">
+                      </div>
+
+  
+                    <div class="text-center">
+                      <button class="btn btn-danger" (click)="cancel()">
+                          <i class="fas fa-ban"></i>&nbsp;
+                          Annuler
+                      </button>
+                      <button class="btn btn-success" (click)="register()">
+                          <i class="fas fa-save"></i>&nbsp;
+                          Enregistrer
+                  
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+  

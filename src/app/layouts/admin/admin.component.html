@@ -1,0 +1,31 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+
+
+<mat-nav-list>
+    <div class="logo py-4">
+      <img src="./assets/forci.png" alt="Company Logo" /> 
+    </div>
+    <mat-divider></mat-divider>
+    <h1 matSubheader class="mt-2">ESPACE ADMINISTRATEUR</h1>
+  
+    
+  
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/gestutilisateur">
+      <mat-icon>group</mat-icon>Gestion utilisateur
+    </a>
+   
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/gestformation">
+      <mat-icon> local_library</mat-icon>Gestion formation
+    </a>
+    
+  
+  
+  </mat-nav-list>
+
+</mat-drawer>
+<mat-drawer-content>
+  <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+  <router-outlet></router-outlet>
+</mat-drawer-content>
+</mat-drawer-container>

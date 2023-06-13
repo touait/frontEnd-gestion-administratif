@@ -1,0 +1,61 @@
+
+<body id="demo">
+    <div class="container pm-certificate-container" >
+      <div class="outer-border"></div>
+      <div class="inner-border"></div>
+      <div class="pm-certificate-border col-xs-12">
+        <div class="row pm-certificate-header">
+          <div class="pm-certificate-title cursive col-xs-12 text-center">
+            <h2 class="color bold">FORCI PLUS</h2>
+            <P> <small>1 er étage, Imm Ayadi, A coté d'impasse Sidi Assem <br> Jendouba 8100, Jendouba, Tunisia </small></P>
+          </div>
+        </div>
+  
+            <div class="col-md-12 text-center">
+              <div class="row">
+                <div class="row pm-certificate-body">
+          
+                  
+                  <span class="pm-name-text bold color">ATTESTATION D'ACHEVEMENT</span><BR>
+                  <p >Je soussigné, directeur du cabinet de formation Forci Plus ,atteste par le présent certificat que : </p>
+                  <br>
+                  <h1 class="pm-credits-text  bold color">{{certificats.nom +' ' +certificats.prenom}}</h1>
+                         
+
+                  <div class="col-md-12 text-center">
+                    <span >Propriétaire de la carte d'identité nationalenuméro : <sup> <mark>{{certificats.cin}}</mark></sup></span>
+                    <span class="pm-credits-text block bold sans">a participé avec succés a la formation intitulée</span>
+                  </div>
+
+                  <div class="pm-course-title col-xs-8 text-center">
+                    <h1 class="pm-earned-text block cursive color"><mark><em>{{certificats.formation}} avec la mention {{certificats.remarque}}</em></mark></h1>
+                  </div>
+                  <br><br><br><br><br>
+                  
+                  <div class="col-md-6">
+                    <div class="row">
+                    <span >Tunis le {{certificats.date|date}}</span>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="row">
+                  <span class="pm-credits-text block bold sans">signature</span>
+                </div>
+              </div>
+                
+          </div>       
+        </div>
+       </div>
+       </div>
+      
+    </div>
+    
+  </body>
+
+  <div class="col-sm-6">
+    <button class="btn btn-success"  printSectionId="demo" ngxPrint ><i class="material-icons" data-toggle="tooltip" title="Delete">local_printshop</i></button>
+          
+  </div>
+  
+ 

@@ -1,0 +1,93 @@
+
+<main class="main-content">
+    <section>
+      <div class="page-header min-vh-90">
+        <div class="container">
+          <div class="row">
+            <div class=" col-md-8 offset-2">
+              <div class="card card-plain">
+                <div class="card-header">
+                  <h1 class="font-weight-bolder text-center">{{title}}</h1>
+                </div>
+                <div class="card-body">
+                  <form>
+
+                    <div class="form-group">  
+                      <input [(ngModel)]="utilisateur.nomU" name="nomU" type="text"  placeholder="Nom" class="form-control"
+                      ngModel #n="ngModel" required minlength="3">
+                        <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+                          <p *ngIf="n.hasError('required')" >Name is required</p>
+                          <p *ngIf="n.hasError('minlength')"> minlength error</p>
+                        </div>
+                    </div><br>
+
+                    <div class="form-group">
+                        <input  [(ngModel)]="utilisateur.prenom" name="prenom" type="text" class="form-control" placeholder="Prenom"
+                        ngModel #a="ngModel" required minlength="3">
+                        <div class="alert alert-danger" *ngIf="a.invalid && a.touched">
+                          <p *ngIf="a.hasError('required')" >prenom is required</p>
+                          <p *ngIf="a.hasError('minlength')"> minlength error</p>
+                        </div>
+                      </div><br>
+
+                      <div class="form-group">
+                        <input [(ngModel)]="utilisateur.email" name="email"  type="email" class="form-control" placeholder="Email"
+                        ngModel #b="ngModel" required >
+                        <div class="alert alert-danger" *ngIf="b.invalid && b.touched">
+                          <p *ngIf="b.hasError('required')" >email is required</p>
+                        </div>
+                       </div><br>
+
+                    <div class="form-group">
+                      <input [(ngModel)]="utilisateur.telephone" name="telephone" type="number" class="form-control" placeholder="N° Telephone"
+                      ngModel #c="ngModel" required >
+                        <div class="alert alert-danger" *ngIf="c.invalid && c.touched">
+                          <p *ngIf="c.hasError('required')" >N° Tel is required</p>
+                        </div>
+                    </div><br>
+
+                    <div class="form-group">
+                    <select  [(ngModel)]="utilisateur.role" name="role" class="form-control">
+                      <option [ngValue]="'role'">Selectonner role...</option>
+                      <option value="technicien">Technicien</option>
+                      <option value="secretaire géneral">secretaire géneral</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                    </div><br>
+  
+                    <div class="form-group">
+                      <input type="file" class="form-control" (change)="select($event)">
+                    </div><br>
+  
+                    <div class="form-group">
+                      <input type="text" class="form-control"  name="password" [(ngModel)]="utilisateur.password" placeholder="Password"
+                      ngModel #d="ngModel" required minlength="4">
+                      <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+                        <p *ngIf="d.hasError('required')" >email is required</p>
+                        <p *ngIf="d.hasError('minlength')" >minlength is required</p>
+                      </div>
+                    </div><br>
+                    
+                    <div class="text-center">
+                      <button class="btn btn-danger" (click)="cancel()">
+                          <i class="fas fa-ban"></i>&nbsp;
+                          Annuler
+                      </button>
+                      <button class="btn btn-success" (click)="register()">
+                          <i class="fas fa-save"></i>&nbsp;
+                          Enregistrer
+                  
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+  
